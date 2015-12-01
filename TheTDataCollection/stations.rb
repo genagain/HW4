@@ -1,6 +1,5 @@
 require 'nokogiri'
 require 'csv'
-require 'pry'
 
 doc = Nokogiri::HTML(open('data.html'))
 elements = doc.css('table').first.css('tbody').children
