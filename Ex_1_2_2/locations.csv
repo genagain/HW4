@@ -1,127 +1,127 @@
 Station Name,x,y
-Alewife,163,117
-Davis,187,116
-Porter Square,184,163
-Harvard Square,184,163
-Central Square,184,163
-Kendall/MIT,184,163
-Charles/MGH,184,163
-Park Street,242,196
-Downtown Crossing,242,196
-South Station,242,196
-Broadway,242,196
-Andrew,242,196
-JFK/UMass,242,196
-Savin Hill,242,196
-Fields Corner,242,196
-Shawmut,242,196
-Ashmont,242,196
-Cedar Grove,242,196
-Butler,242,196
-Milton,242,196
-Central Avenue,242,196
-Valley Road,242,196
-Capen Street,242,196
-Mattapan,242,196
-North Quincy,242,196
-Wollaston,242,196
-Quincy Center,242,196
-Quincy Adams,242,196
-Braintree,242,196
-Oak Grove,242,196
-Malden Center,242,196
-Wellington,174,351
-Sullivan Square,174,351
-Community College,174,351
-North Station,174,351
-Haymarket,174,351
-State,174,351
-Downtown Crossing,174,351
-Chinatown,174,351
-New England Medical Center,174,351
-Back Bay,174,351
-Massachusetts Avenue,290,410
-Ruggles,290,410
-Roxbury Crossing,290,410
-Jackson Square,290,410
-Stony Brook,290,410
-Green Street,290,410
-Forest Hills,290,410
-Lechmere,290,410
-Science Park,290,410
-North Station,290,410
-Haymarket,290,410
-Government Center,290,410
-Park Street,290,410
-Boylston,290,410
-Arlington,290,410
-Copley,290,410
-Hynes Convention Center,290,410
-Kenmore,290,410
-Blandford Street,290,410
-Boston University East,290,410
-Boston University Central,290,410
-Boston University West,290,410
-St. Paul Street (1),290,410
-Pleasant Street,290,410
-Babcock Street,290,410
-Packards Corner,158,499
-Harvard Avenue,158,499
-Griggs Street/Long Avenue,158,499
-Allston Street,158,499
-Warren Street,158,499
-Washington Street,158,499
-Sutherland Street,158,499
-Chiswick Road,158,499
-Chestnut Hill Avenue,158,499
-South Street,158,499
-Boston College,158,499
-St. Marys Street,158,499
-Hawes Street,158,499
-Kent Street,158,499
-St. Paul Street (2),158,499
-Coolidge Corner,158,499
-Summit Avenue,158,499
-Brandon Hall,158,499
-Fairbanks,158,499
-Washington Square,158,499
-Tappan Street,158,499
-Dean Road,158,499
-Englewood Avenue,158,499
-Cleveland Circle,71,438
-Fenway,71,438
-Longwood,71,438
-Brookline Village,71,438
-Brookline Hills,71,438
-Beaconsfield,71,438
-Reservoir,71,438
-Chestnut Hill,107,268
-Newton Center,107,268
-Newton Highlands,107,268
-Eliot,107,268
-Waban,107,268
-Woodland,107,268
-Riverside,107,268
-Prudential,107,268
-Symphony,107,268
-Northeastern University,107,268
-Museum of Fine Arts,107,268
-Longwood Medical Area,107,268
-Brigham Circle,107,268
-Fenwood Street,107,268
-Mission Park,107,268
-Riverway,107,268
-Back of the Hill,428,73
-Heath Street,428,73
-Wonderland,428,73
-Revere Beach,428,73
-Beachmont,428,73
-Suffolk Downs,428,73
-Orient Heights,428,73
-Wood Island,428,73
-Airport,428,73
-Maverick,428,73
-Aquarium,428,73
-State,428,73
-Government Center,428,73
-Bowdoin,428,73
+Alewife,162,115
+Davis,188,117
+Porter Square,220,122
+Harvard Square,242,144
+Central Square,260,162
+Kendall/MIT,281,182
+Charles/MGH,301,202
+Park Street,316,218
+Downtown Crossing,335,237
+South Station,357,258
+Broadway,362,285
+Andrew,362,305
+JFK/UMass,362,328
+Savin Hill,348,343
+Fields Corner,335,364
+Shawmut,335,376
+Ashmont,335,392
+Cedar Grove,334,414
+Butler,326,422
+Milton,310,423
+Central Avenue,293,422
+Valley Road,279,422
+Capen Street,263,423
+Mattapan,249,425
+North Quincy,409,415
+Wollaston,429,435
+Quincy Center,448,453
+Quincy Adams,469,473
+Braintree,475,517
+Oak Grove,334,51
+Malden Center,335,69
+Wellington,336,88
+Sullivan Square,336,110
+Community College,335,132
+North Station,338,158
+Haymarket,353,182
+State,354,217
+Downtown Crossing,335,237
+Chinatown,317,254
+New England Medical Center,305,266
+Back Bay,295,275
+Massachusetts Avenue,285,285
+Ruggles,276,295
+Roxbury Crossing,267,304
+Jackson Square,257,313
+Stony Brook,246,323
+Green Street,236,333
+Forest Hills,227,343
+Lechmere,305,135
+Science Park,323,153
+North Station,333,164
+Haymarket,346,182
+Government Center,336,198
+Park Street,315,218
+Boylston,302,231
+Arlington,285,236
+Copley,270,238
+Hynes Convention Center,255,238
+Kenmore,242,238
+Blandford Street,232,229
+Boston University East,228,224
+Boston University Central,223,220
+Boston University West,219,215
+St. Paul Street (1),215,213
+Pleasant Street,210,208
+Babcock Street,204,207
+Packards Corner,198,207
+Harvard Avenue,192,207
+Griggs Street/Long Avenue,186,207
+Allston Street,180,207
+Warren Street,174,209
+Washington Street,169,212
+Sutherland Street,152,229
+Chiswick Road,139,229
+Chestnut Hill Avenue,131,221
+South Street,125,216
+Boston College,118,208
+St. Marys Street,218,237
+Hawes Street,213,237
+Kent Street,207,237
+St. Paul Street (2),202,238
+Coolidge Corner,197,238
+Summit Avenue,184,238
+Brandon Hall,178,238
+Fairbanks,177,238
+Washington Square,173,238
+Tappan Street,166,238
+Dean Road,162,238
+Englewood Avenue,156,238
+Cleveland Circle,147,236
+Fenway,218,246
+Longwood,204,259
+Brookline Village,194,271
+Brookline Hills,169,269
+Beaconsfield,155,256
+Reservoir,141,244
+Chestnut Hill,128,240
+Newton Center,115,241
+Newton Highlands,102,241
+Eliot,88,241
+Waban,75,241
+Woodland,61,240
+Riverside,43,240
+Prudential,255,262
+Symphony,250,268
+Northeastern University,246,274
+Museum of Fine Arts,242,277
+Longwood Medical Area,239,282
+Brigham Circle,234,286
+Fenwood Street,230,290
+Mission Park,227,296
+Riverway,226,303
+Back of the Hill,227,308
+Heath Street,227,312
+Wonderland,508,63
+Revere Beach,490,80
+Beachmont,475,94
+Suffolk Downs,461,108
+Orient Heights,447,124
+Wood Island,433,139
+Airport,420,150
+Maverick,404,166
+Aquarium,372,199
+State,353,216
+Government Center,335,198
+Bowdoin,319,184
