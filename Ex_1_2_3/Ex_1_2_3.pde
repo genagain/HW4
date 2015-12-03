@@ -7,6 +7,7 @@ Table connections;
 int nodeCount; 
 Node[] nodes = new Node[150];
 HashMap nodeTable = new HashMap();
+Node selection = new Node("", 0.0, 0.0, -1);
 
 // edges
 int edgeCount; 
@@ -27,11 +28,6 @@ void setup() {
   locations = new Table("locations.csv"); 
   connections = new Table("connections.csv");  
   loadData();
-
-  //writer = createWriter("locations.csv");
-  //writer.println("Station Name,x,y");
-  //cursor(CROSS); 
-  //println("Click the mouse to begin.");
 }
 
 void draw() {
@@ -43,6 +39,7 @@ void draw() {
   smooth();
 
   background(255); 
+
 
   // draw the edges
   for (int i = 0; i < edgeCount; i++) {
@@ -58,23 +55,28 @@ void draw() {
     endRecord();
     record = false;
   }
+
+  fill(0, 0, 0);
+  //if (selection.label){
+  if (!(selection.label.isEmpty())) {
+    text("Station: " + selection.label, 10.0, 10.0);
+  };
+  //}
 }
 
-void mousePressed() {
-  //if (currentRow != -1) {
-  //  String abbrev = nameTable.getRowName(currentRow);
-  //  writer.println(abbrev + "," + mouseX + "," + mouseY);
-  //  System.out.println(abbrev + "," + mouseX + "," + mouseY);
-  //}
-
-  //currentRow++;
-  //if (currentRow == nameTable.getRowCount()) {
-  //  writer.flush();
-  //  writer.close(); 
-  //  exit();
-  //} else {
-  //  String name = nameTable.getString(currentRow, 0); 
-  //  println("Choose location for " + name + ".");
+void mouseMoved() {
+  //if (mouseButton == LEFT) {
+  float closest = 2;
+  for (int i = 0; i < nodeCount; i++) {
+    Node n = nodes[i];
+    float d = dist(mouseX, mouseY, n.x, n.y);
+    if (d < closest) {
+      selection = n;
+      closest = d;
+      fill(0, 0, 0);
+      text(selection.label, 10.0, 10.0);
+    }
+  }
   //}
 }
 
@@ -84,8 +86,6 @@ void loadData() {
     String fromLabel = connections.getString(i, 0);
     String toLabel = connections.getString(i, 1);
     String colorLabel = connections.getString(i, 2);
-    //color col = String toLabel = connections.getString(i, 1);
-    // TODO: Get correct color
     switch(colorLabel) {
     case "red": 
       col = color(230, 19, 16);
@@ -122,7 +122,6 @@ void addEdge(String fromLabel, String toLabel, color col, float minutes) {
   }
 
   // add edge
-  // TODO add color
   Edge e = new Edge(from, to, col, minutes);
   if (edgeCount == edges.length) {
     edges = (Edge[]) expand(edges);
@@ -138,7 +137,6 @@ Node findNode(String label) {
   return n;
 }
 
-//TODO: add correct location x-y coordinates
 Node addNode(String label) {
   float x = locations.getFloat(label, 1); 
   float y = locations.getFloat(label, 2); 
