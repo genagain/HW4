@@ -11,6 +11,9 @@ class Edge {
     this.col = col;
   }
   
+  Edge(){
+  }
+  
   Node getFromNode() {
     return from;
   }

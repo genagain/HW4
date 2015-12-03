@@ -22,12 +22,28 @@ PFont font;
 // record
 boolean record; 
 
+//active stuff
+boolean[] activeNodes;
+boolean[] activeEdges;
+
+//shortest path
+Node A = new Node("", 0.0, 0.0, -1);
+;
+Node B = new Node("", 0.0, 0.0, -1);
+;
+
+int numOfNodes;
+int numOfMinutes = 0;
+
+
 void setup() {
   size(559, 559);
   font = createFont("SansSerif", 10);
   locations = new Table("locations.csv"); 
   connections = new Table("connections.csv");  
   loadData();
+  initializeActiveDataStructures();
+  initializeAdjacencyMatrix();
 }
 
 void draw() {
@@ -57,15 +73,24 @@ void draw() {
   }
 
   fill(0, 0, 0);
-  //if (selection.label){
   if (!(selection.label.isEmpty())) {
     text("Station: " + selection.label, 10.0, 10.0);
   };
-  //}
+
+  if (!(A.label.isEmpty())) {
+    text("To: " + A.label, 10.0, 20.0);
+  };
+
+  if (!(B.label.isEmpty())) {
+    text("From: " + B.label, 10.0, 30.0);
+  };
+  
+  if (!(numOfMinutes == 0)) {
+    text("Minutes: " + numOfMinutes, 10.0, 40.0);
+  };
 }
 
 void mouseMoved() {
-  //if (mouseButton == LEFT) {
   float closest = 2;
   for (int i = 0; i < nodeCount; i++) {
     Node n = nodes[i];
@@ -77,7 +102,29 @@ void mouseMoved() {
       text(selection.label, 10.0, 10.0);
     }
   }
-  //}
+}
+
+void mouseClicked() {
+  float closest = 3;
+  for (int i = 0; i < nodeCount; i++) {
+    Node n = nodes[i];
+    float d = dist(mouseX, mouseY, n.x, n.y);
+    if (d < closest) {
+      if ((A.label.isEmpty() && B.label.isEmpty())) {
+        A = n;
+      } else if ((!(A.label.isEmpty()) && B.label.isEmpty())) {
+        B = n;
+        numOfNodes++;
+        float numOfStops = shortestPath(A.getIndex(), B.getIndex());
+        numOfMinutes = calculateNumOfMinutes( A, B,  numOfStops); 
+        System.out.println(numOfMinutes);
+      } else if ((!(A.label.isEmpty()) && !(B.label.isEmpty()))) {
+        A = n;
+        B = new Node("", 0.0, 0.0, -1);
+      }
+      closest = d;
+    }
+  }
 }
 
 void loadData() {
@@ -147,4 +194,26 @@ Node addNode(String label) {
   nodeTable.put(label, n);
   nodes[nodeCount++] = n;
   return n;
+}
+
+int calculateNumOfMinutes(Node to, Node from, float numOfStops) {
+  int totalMinutes = 0;
+  Edge k = new Edge();
+  for (int i = 0; i < edgeCount; i++) {
+    k = edges[i];
+    if (from.label == k.from.label) {
+      Edge origin = k;
+    }
+  }
+  for (int j = 0; j < numOfStops; j++) {
+    totalMinutes += k.minutes;
+    // find next edge
+    for (int i = 0; i < edgeCount; i++) {
+      Edge intermidate = edges[i];
+      if (k.to == intermidate.from) {
+        k = intermidate;
+      }
+    }
+  }
+  return totalMinutes;
 }
