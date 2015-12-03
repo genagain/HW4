@@ -28,12 +28,12 @@ boolean[] activeEdges;
 
 //shortest path
 Node A = new Node("", 0.0, 0.0, -1);
-;
+
 Node B = new Node("", 0.0, 0.0, -1);
-;
+
 
 int numOfNodes;
-int numOfMinutes = 0;
+float numOfMinutes = 0.0;
 
 
 void setup() {
@@ -84,7 +84,7 @@ void draw() {
   if (!(B.label.isEmpty())) {
     text("From: " + B.label, 10.0, 30.0);
   };
-  
+
   if (!(numOfMinutes == 0)) {
     text("Minutes: " + numOfMinutes, 10.0, 40.0);
   };
@@ -106,24 +106,30 @@ void mouseMoved() {
 
 void mouseClicked() {
   float closest = 3;
-  for (int i = 0; i < nodeCount; i++) {
-    Node n = nodes[i];
-    float d = dist(mouseX, mouseY, n.x, n.y);
-    if (d < closest) {
-      if ((A.label.isEmpty() && B.label.isEmpty())) {
-        A = n;
-      } else if ((!(A.label.isEmpty()) && B.label.isEmpty())) {
-        B = n;
-        numOfNodes++;
-        float numOfStops = shortestPath(A.getIndex(), B.getIndex());
-        numOfMinutes = calculateNumOfMinutes( A, B,  numOfStops); 
-        System.out.println(numOfMinutes);
-      } else if ((!(A.label.isEmpty()) && !(B.label.isEmpty()))) {
-        A = n;
-        B = new Node("", 0.0, 0.0, -1);
+  if (mouseButton == LEFT) {
+    for (int i = 0; i < nodeCount; i++) {
+      Node n = nodes[i];
+      float d = dist(mouseX, mouseY, n.x, n.y);
+      if (d < closest) {
+        if ((A.label.isEmpty() && B.label.isEmpty())) {
+          A = n;
+        } else if ((!(A.label.isEmpty()) && B.label.isEmpty())) {
+          B = n;
+          numOfNodes++;
+          float numOfStops = shortestPath(A.getIndex(), B.getIndex());
+          numOfMinutes = calculateNumOfMinutes( A, B, numOfStops); 
+        } else if ((!(A.label.isEmpty()) && !(B.label.isEmpty()))) {
+          A = n;
+          B = new Node("", 0.0, 0.0, -1);
+        }
+        closest = d;
       }
-      closest = d;
     }
+  } else {
+    A = new Node("", 0.0, 0.0, -1);
+    B = new Node("", 0.0, 0.0, -1);
+    numOfNodes = 0;
+    numOfMinutes = 0.0;
   }
 }
 
@@ -196,8 +202,8 @@ Node addNode(String label) {
   return n;
 }
 
-int calculateNumOfMinutes(Node to, Node from, float numOfStops) {
-  int totalMinutes = 0;
+float calculateNumOfMinutes(Node to, Node from, float numOfStops) {
+  float totalMinutes = 0.0;
   Edge k = new Edge();
   for (int i = 0; i < edgeCount; i++) {
     k = edges[i];
