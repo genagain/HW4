@@ -11,6 +11,9 @@ class Edge {
     this.col = col;
   }
   
+  Edge(){
+  }
+  
   Node getFromNode() {
     return from;
   }
@@ -21,6 +24,14 @@ class Edge {
   
   float getMinutes() {
     return minutes;
+  }
+  
+  color getColor() {
+    return col;
+  }
+  
+  void setColor(color newCol) {
+    this.col = newCol;
   }
   
   void draw() {

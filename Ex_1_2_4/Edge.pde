@@ -28,7 +28,7 @@ class Edge {
   
   void draw() {
     stroke(col); 
-    strokeWeight(1);
+    strokeWeight(2);
     line(from.x, from.y, to.x, to.y);
   }
 }  

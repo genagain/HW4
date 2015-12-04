@@ -1,4 +1,4 @@
-import processing.pdf.*; //<>//
+import processing.pdf.*; //<>// //<>//
 
 Table locations; 
 Table connections; 
@@ -28,13 +28,10 @@ boolean[] activeEdges;
 
 //shortest path
 Node A = new Node("", 0.0, 0.0, -1);
-
 Node B = new Node("", 0.0, 0.0, -1);
-
 
 int numOfNodes;
 float numOfMinutes = 0.0;
-
 
 void setup() {
   size(559, 559);
@@ -64,20 +61,31 @@ void draw() {
 
     // draw the nodes
     for (int i = 0; i < nodeCount; i++) {
-
       nodes[i].draw();
     }
   } else {
+    colorMode(HSB, 255);
+    Integrator brightnessIntegrator = new Integrator(100);
+    Integrator saturationIntegrator = new Integrator(1);
+
     for (int i = 0; i < activeEdges.length; i++) {
       if (activeEdges[i] == true) {
+        edges[i].draw();
+      } else {
+        saturationIntegrator.target(0);
+        brightnessIntegrator.target(200);
+        float hue = hue(edges[i].getColor());        
+        saturationIntegrator.update();
+        brightnessIntegrator.update();
+        float newBrightness = brightness((int)brightnessIntegrator.getValue());
+        float newSaturation = saturation((int)saturationIntegrator.getValue());
+        edges[i].setColor(color(hue, newSaturation, newBrightness));
         edges[i].draw();
       }
     }
 
-    for (int i = 0; i < activeNodes.length; i++) {
-      if (activeNodes[i] == true) {
-        nodes[i].draw();
-      }
+    for (int i = 0; i < nodeCount; i++) {
+      nodes[i].draw();
     }
   }
 
@@ -132,7 +140,6 @@ void mouseClicked() {
           numOfNodes++;
           float numOfStops = shortestPath(A.getIndex(), B.getIndex());
           numOfMinutes = calculateNumOfMinutes( A, B, numOfStops);
-          draw();
         } else if ((!(A.label.isEmpty()) && !(B.label.isEmpty()))) {
           A = n;
           B = new Node("", 0.0, 0.0, -1);
@@ -145,6 +152,8 @@ void mouseClicked() {
     B = new Node("", 0.0, 0.0, -1);
     numOfNodes = 0;
     numOfMinutes = 0.0;
+    loadData();
+    draw();
   }
 }
 
@@ -171,7 +180,6 @@ void loadData() {
       col = color(255, 255, 255);
       break;
     }
-
     float minutes = connections.getFloat(i, 3);
     addEdge(fromLabel, toLabel, col, minutes);
   }
