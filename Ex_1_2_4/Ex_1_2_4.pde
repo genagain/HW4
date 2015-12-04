@@ -56,15 +56,31 @@ void draw() {
 
   background(255); 
 
+  if (numOfMinutes == 0.0) {
+    // draw the edges
+    for (int i = 0; i < edgeCount; i++) {
+      edges[i].draw();
+    }
 
-  // draw the edges
-  for (int i = 0; i < edgeCount; i++) {
-    edges[i].draw();
-  }
+    // draw the nodes
+    for (int i = 0; i < nodeCount; i++) {
 
-  // draw the nodes
-  for (int i = 0; i < nodeCount; i++) {
-    nodes[i].draw();
+      nodes[i].draw();
+    }
+  } else {
+    for (int i = 0; i < activeEdges.length; i++) {
+      System.out.println("It got here");
+      if (activeEdges[i] == true) {
+        edges[i].draw();
+      }
+    }
+
+    for (int i = 0; i < activeNodes.length; i++) {
+      System.out.println("It got here");
+      if (activeNodes[i] == true) {
+        nodes[i].draw();
+      }
+    }
   }
 
   if (record) {
@@ -117,7 +133,8 @@ void mouseClicked() {
           B = n;
           numOfNodes++;
           float numOfStops = shortestPath(A.getIndex(), B.getIndex());
-          numOfMinutes = calculateNumOfMinutes( A, B, numOfStops); 
+          numOfMinutes = calculateNumOfMinutes( A, B, numOfStops);
+          draw();
         } else if ((!(A.label.isEmpty()) && !(B.label.isEmpty()))) {
           A = n;
           B = new Node("", 0.0, 0.0, -1);
