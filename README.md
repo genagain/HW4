@@ -11,7 +11,8 @@ In order to view the visualizations you must install processing, which can be in
 
 These exercises culminate to one visualization as shown below.
 
-IMAGE GOES HERE
+
+![A map of the T showing the shortest path](t-path.png)
 
 When you click two points, the following are calculated:
  * The shortest path between the two stations
