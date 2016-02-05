@@ -14,9 +14,13 @@ These exercises culminate to one visualization as shown below.
 
 ![A map of the T showing the shortest path](t-path.png)
 
+When you hover over the stations with your cursor, the name of the station appears in th upper right hand corner.
+
 When you click two points, the following are calculated:
  * The shortest path between the two stations
  * The time in minutes to travel between them
+
+The every other edge except for the shortest path, turns grey.
 
 Outine:
 - Visualized Boston's T
